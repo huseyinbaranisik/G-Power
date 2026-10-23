@@ -63,7 +63,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 | Zip SHA-256 | `3BB7F1F2478D74EE5BA701AE7F849373CF2B8A11F6B6216C7C6B236DB7861199` |
 | Test ailesi | χ² tests · Goodness-of-fit tests: Contingency tables (`chi2-contingency`) |
 | Modlar | `a-priori`, `post-hoc` |
-| Sözleşme sürümü | `TODO` |
+| Sözleşme sürümü | `1.0.0` ([CONTRACT.md](CONTRACT.md), [ders gist'i](https://gist.github.com/seyyah/08d3e031781d853b17366be8ba264211)) |
 | Araçlar | REA 6.7.0 (`rea-agents`), Ghidra 12.1.4, Eclipse Temurin JDK 21.0.12 |
 
 `GPowerNT.exe` (ödev metninde `GPower.exe`) bu repoda yoktur ve olmayacaktır (`.gitignore`).
@@ -106,12 +106,27 @@ Kılavuzda yazmayan, G\*Power'ın ekranında ve binary'sinde bulunan davranışl
 
 ---
 
+### ⚖️ SÖZLEŞME İLE G\*POWER ARASINDAKİ ÇELİŞKİLER
+
+`CONTRACT.md` §5, aralık dışındaki girdilerin `OUT_OF_RANGE` ile reddedilmesini istiyor. G\*Power ise bu girdilerin bir kısmını hatasız hesaplıyor:
+
+| Vektör | Girdi | Sözleşme §5 | G\*Power 3.1.9.7 |
+| :---: | :--- | :--- | :--- |
+| G028 | `df = 2.5` | df tam sayı ≥ 1 → red | Kesirli df olduğu gibi kullanılır, N=115 |
+| G035 | post hoc `n_total = 1` | n_total ≥ 2 → red | Güç = 0.0603726 |
+| G036–G038 | post hoc `n_total = 10.2 / 10.5 / 10.7` | tam sayı → red | En yakın tam sayıya yuvarlanır (10 / 11 / 11) |
+| G039 | post hoc `w = 0` | w > 0 → red | Güç = α = 0.05 |
+
+Gizli testler sözleşmenin düzeneğiyle çalıştığı için bu uygulama **aralık dışında sözleşmeye**, aralık içinde G\*Power'a uyar. Belirsizlik ders gönderisine bildirilmelidir (sözleşme §11).
+
+---
+
 ### 🚀 KURULUM VE ÇALIŞTIRMA
 
 ```bash
 # 1. Repoyu klonla
-git clone https://github.com/huseyinbaranisik/chi2-teardown.git
-cd chi2-teardown
+git clone https://github.com/huseyinbaranisik/G-Power.git
+cd G-Power
 
 # 2. Kurulum
 # TODO: Oturum 2'nin yazdığı programa göre doldurulacak
@@ -158,8 +173,9 @@ Oturumun kendi kontrolüne (`binary_session`) göre Ghidra sağlayıcısı **ava
 ### 📁 PROJE YAPISI
 
 ```
-chi2-teardown/
+G-Power/
 ├── README.md               # Bu dosya
+├── CONTRACT.md             # Ders CLI sözleşmesi v1.0.0 (gist'ten)
 ├── SPEC.md                 # Algoritma tarifi + Gherkin kabul kriterleri (Oturum 1)
 ├── LEDGER.md               # Kanıt defteri: [REA] / [DOK] / [AJAN]
 ├── HALLUCINATIONS.md       # Ajanın yanlış çıkarımları (H1–H3)
@@ -171,6 +187,7 @@ chi2-teardown/
 │   ├── gpower_vectors.csv     # 50 G*Power vektörü (asıl kâhin)
 │   ├── screenshots/           # Her vektörün G*Power ekran görüntüsü
 │   ├── collect_gpower.ps1     # Vektörleri G*Power'dan toplayan betik
+│   ├── public_vectors.jsonl   # Sözleşmedeki 25 açık referans vektörü
 │   ├── scale_vectors.csv      # 567 scipy vektörü (ölçek kâhini)
 │   └── gen_scale_oracle.py
 ├── src/                    # Motor + CLI (Oturum 2)
