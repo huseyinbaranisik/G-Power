@@ -48,7 +48,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 
 | Katman | Puan | Durum |
 | :--- | :---: | :---: |
-| Temel: motor + CLI | 85 | ⏳ Oturum 2 |
+| Temel: motor + CLI | 85 | ✅ Tamam |
 | MCP sunucusu | +15 | ⏳ Bonus |
 | AI ajanı | +10 | ⏳ Bonus |
 
@@ -128,27 +128,38 @@ Gizli testler sözleşmenin düzeneğiyle çalıştığı için bu uygulama **ar
 git clone https://github.com/huseyinbaranisik/G-Power.git
 cd G-Power
 
-# 2. Kurulum
-# TODO: Oturum 2'nin yazdığı programa göre doldurulacak
+# 2. Kurulum (Python ≥ 3.10; tek bağımlılık scipy)
+python -m venv .venv && .venv/Scripts/python -m pip install -e ".[test]"
+# macOS / Linux: .venv/bin/python -m pip install -e ".[test]"
+
+# 3. Komut artık .venv/Scripts/gpower-clone (macOS/Linux: .venv/bin/gpower-clone)
+.venv/Scripts/gpower-clone --version
+# {"contract_version": "1.0.0", "name": "G-Power (huseyinbaranisik)", "engine": "Python 3.14.3"}
 ```
 
 ```bash
 # A priori: gereken örneklem büyüklüğü
 gpower-clone --test chi2-contingency --mode a-priori --w 0.3 --alpha 0.05 --power 0.95 --df 5
-# {"ncp":19.8,"critical_chi2":11.0705,"n_total":220,"actual_power":0.9502}
+# {"ncp": 19.8, "critical_chi2": 11.070497693516351, "n_total": 220, "actual_power": 0.9502155018970164}
 
 # Post hoc: ulaşılan güç
 gpower-clone --test chi2-contingency --mode post-hoc --w 0.3 --alpha 0.05 --n_total 50 --df 5
+# {"ncp": 4.5, "critical_chi2": 11.070497693516351, "power": 0.32717853371574623}
 
 # Geçersiz girdi → hata JSON'u, çıkış kodu 2
 gpower-clone --test chi2-contingency --mode a-priori --w 0 --alpha 0.05 --power 0.8 --df 1
+# {"error": "Effect size w must be greater 1e-06.", "code": "OUT_OF_RANGE", "field": "w"}
 ```
 
-Diferansiyel test:
+Sayılar sözleşme gereği tam double hassasiyetle basılır (CONTRACT §2.3); karşılaştırma toleransı 1e-6'dır.
+
+Testler:
 
 ```bash
-python oracle/gen_scale_oracle.py                      # ölçek kâhini (scipy/statsmodels)
-python tests/diff_test.py oracle/gpower_vectors.csv oracle/scale_vectors.csv
+.venv/Scripts/python -m pytest -q                      # 137 test + 3 bilinçli xfail (bonus modlar)
+
+# Diferansiyel test (gpower-clone PATH'te olmalı)
+PATH="$PWD/.venv/Scripts:$PATH" python tests/diff_test.py oracle/gpower_vectors.csv oracle/scale_vectors.csv
 # -> tests/REPORT.md
 ```
 
@@ -156,7 +167,16 @@ python tests/diff_test.py oracle/gpower_vectors.csv oracle/scale_vectors.csv
 
 ### 📊 UYUM RAPORU
 
-`TODO: tests/REPORT.md özeti (N eşleşme oranı, kapı %90)`
+| Ölçüm | Sonuç |
+| :--- | :--- |
+| 🚪 **Kapı:** a priori N tam eşleşmesi | **589 / 589 = %100** (eşik %90) ✅ |
+| `gpower_vectors.csv` (G\*Power ekranı) | 44 / 50; kalan 6'sı yukarıdaki **sözleşme çelişkileri** |
+| `scale_vectors.csv` (scipy ölçek kâhini) | 567 / 567 |
+| Sözleşme toleransıyla (≤ 1e-6) bağımsız kontrol | 50 kâhin satırı + 2 açık chi2 vektörü: sorun yok |
+| pytest | 137 geçti, 3 bilinçli xfail (SPEC'te kuralı olmayan bonus modlar) |
+| En yavaş çağrı | 0.69 s (sınır 2 s) |
+
+Ayrıntı: [tests/REPORT.md](tests/REPORT.md) ve Oturum 2'nin raporu [RAPOR.md](RAPOR.md) (SPEC'e ve sözleşmeye açık sorular dahil).
 
 ---
 
@@ -190,9 +210,14 @@ G-Power/
 │   ├── public_vectors.jsonl   # Sözleşmedeki 25 açık referans vektörü
 │   ├── scale_vectors.csv      # 567 scipy vektörü (ölçek kâhini)
 │   └── gen_scale_oracle.py
-├── src/                    # Motor + CLI (Oturum 2)
+├── RAPOR.md                # Oturum 2 raporu: çelişkiler, SPEC'e sorular
+├── pyproject.toml          # Paket tanımı, gpower-clone komutu
+├── src/
+│   ├── engine/                # Tek hesap motoru (doğrulama, N araması, Brent)
+│   └── cli/                   # gpower-clone: argüman → motor → tek satır JSON
 └── tests/
-    ├── diff_test.py           # Diferansiyel test
+    ├── test_*.py              # Kâhin, Gherkin senaryoları, açık vektörler, sözleşme
+    ├── diff_test.py           # Diferansiyel test (ders düzeneği)
     └── REPORT.md              # Uyum raporu
 ```
 

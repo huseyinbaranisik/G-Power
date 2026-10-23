@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpower-clone"
+version = "0.1.0"
+description = "chi2-contingency power analysis, CONTRACT 1.0.0"
+requires-python = ">=3.10"
+dependencies = ["scipy"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+gpower-clone = "cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["engine*", "cli*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
