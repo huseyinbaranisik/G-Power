@@ -1,0 +1,16 @@
+# G*Power binary'si ve kurulum dosyaları repoya konmaz
+GPower.exe
+*.exe
+*.msi
+GPower*.zip
+
+# Ghidra proje dosyaları ve decompile çıktıları (teslim edilmez)
+*.gpr
+*.rep/
+ghidra/
+decompile/
+
+__pycache__/
+*.pyc
+.venv/
+node_modules/

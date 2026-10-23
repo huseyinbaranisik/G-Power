@@ -1,0 +1,51 @@
+id,mode,w,alpha,power,df,n_total,ncp,critical_chi2,actual_power,expect_error,screenshot,note
+G001,a-priori,0.3,0.05,0.95,5,220,19.8000000,11.0704977,0.9502155,,screenshots/G001.png,[DOK] kılavuz örneği
+G002,a-priori,0.1,0.05,0.8,1,785,7.8500000,3.8414588,0.8000569,,screenshots/G002.png,tipik
+G003,a-priori,0.1,0.05,0.8,2,964,9.6400000,5.9914645,0.8002316,,screenshots/G003.png,tipik
+G004,a-priori,0.1,0.05,0.8,4,1194,11.9400000,9.4877290,0.8001775,,screenshots/G004.png,tipik
+G005,a-priori,0.3,0.05,0.8,1,88,7.9200000,3.8414588,0.8035275,,screenshots/G005.png,tipik
+G006,a-priori,0.3,0.05,0.8,2,108,9.7200000,5.9914645,0.8036939,,screenshots/G006.png,tipik
+G007,a-priori,0.3,0.05,0.8,4,133,11.9700000,9.4877290,0.8013043,,screenshots/G007.png,tipik
+G008,a-priori,0.5,0.05,0.8,1,32,8.0000000,3.8414588,0.8074304,,screenshots/G008.png,tipik
+G009,a-priori,0.5,0.05,0.8,2,39,9.7500000,5.9914645,0.8049793,,screenshots/G009.png,tipik
+G010,a-priori,0.5,0.05,0.8,4,48,12.0000000,9.4877290,0.8024261,,screenshots/G010.png,tipik
+G011,a-priori,0.3,0.01,0.9,3,214,19.2600000,11.3448667,0.9002433,,screenshots/G011.png,küçük alfa
+G012,a-priori,0.3,0.1,0.9,3,132,11.8800000,6.2513886,0.9020008,,screenshots/G012.png,büyük alfa
+G013,a-priori,0.01,0.05,0.8,1,78489,7.8489000,3.8414588,0.8000020,,screenshots/G013.png,SINIR: w çok küçük (N çok büyük)
+G014,a-priori,0.001,0.05,0.8,1,7848861,7.8488610,3.8414588,0.8000000,,screenshots/G014.png,SINIR: w aşırı küçük (iterasyon sınırı?)
+G015,a-priori,2,0.05,0.8,1,2,8.0000000,3.8414588,0.8074304,,screenshots/G015.png,SINIR: w çok büyük (N minimumu?)
+G016,a-priori,5,0.05,0.95,10,1,25.0000000,18.3070381,0.9554779,,screenshots/G016.png,"SINIR: w aşırı büyük, df büyük | G*Power N=1 verdi (minimum N=1; df'ye bağlı alt sınır yok)"
+G017,a-priori,0.3,0.05,0.05,2,1,0.0900000,5.9914645,0.0568148,,screenshots/G017.png,SINIR: güç = alfa | güç=alfa kabul edildi; N=1 döndü
+G018,a-priori,0.3,0.05,0.04,2,,,,,evet,screenshots/G018.png,"SINIR: güç < alfa | G*Power hata penceresi ""Input error"": ""Power must be greater than or equal to alpha."""
+G019,a-priori,0.3,0.05,0.999,2,325,29.2500000,5.9914645,0.9990204,,screenshots/G019.png,SINIR: güç 1'e çok yakın
+G020,a-priori,0.3,0.05,0.8,100,451,40.5900000,124.3421,0.8004859,,screenshots/G020.png,"SINIR: df büyük | kritik χ² ekranda 4 ondalıkla gösterildi (124.3421), diğerleri 7 ondalık"
+G021,a-priori,0.3,0.05,0.8,1,88,7.9200000,3.8414588,0.8035275,,screenshots/G021.png,tekrar: df=1 çift kontrol
+G022,a-priori,0,0.05,0.8,1,,,,,evet,screenshots/G022.png,"GEÇERSİZ: w=0 | G*Power hata penceresi ""Input error"": ""Effect size w must be greater 1e-06."""
+G023,a-priori,-0.3,0.05,0.8,1,,,,,evet,screenshots/G023.png,"GEÇERSİZ: w<0 | G*Power hata penceresi ""Input error"": ""Effect size w must be greater 1e-06."""
+G024,a-priori,0.3,0,0.8,1,,,,,evet,screenshots/G024.png,"GEÇERSİZ: alfa=0 | G*Power hata penceresi ""Input error"": ""Alpha is outside the admissible range (1e-07, 1)."""
+G025,a-priori,0.3,1,0.8,1,,,,,evet,screenshots/G025.png,"GEÇERSİZ: alfa=1 | G*Power hata penceresi ""Input error"": ""Alpha is outside the admissible range (1e-07, 1)."""
+G026,a-priori,0.3,0.05,1,1,,,,,evet,screenshots/G026.png,"GEÇERSİZ: güç=1 | G*Power hata penceresi ""Input error"": ""Power is outside the admissible range (1e-07, 1)."""
+G027,a-priori,0.3,0.05,0.8,0,,,,,evet,screenshots/G027.png,"GEÇERSİZ: df=0 | G*Power hata penceresi ""Input error"": ""Degrees of Freedom must be greater or equal one."""
+G028,a-priori,0.3,0.05,0.8,2.5,115,10.3500000,6.9280761,0.8017509,,screenshots/G028.png,GEÇERSİZ: df tam sayı değil | hata yok; kesirli df olduğu gibi kullanıldı (kritik χ² = χ²_0.95(2.5) = 6.928)
+G029,post-hoc,0.3,0.05,0.3271785,5,50,4.5000000,11.0704977,,,screenshots/G029.png,post hoc
+G030,post-hoc,0.3,0.05,0.6235846,5,100,9.0000000,11.0704977,,,screenshots/G030.png,post hoc
+G031,post-hoc,0.3,0.05,0.9502155,5,220,19.8000000,11.0704977,,,screenshots/G031.png,post hoc
+G032,post-hoc,0.3,0.05,0.9999276,5,500,45.0000000,11.0704977,,,screenshots/G032.png,post hoc
+G033,post-hoc,0.1,0.05,0.8853791,1,1000,10.0000000,3.8414588,,,screenshots/G033.png,post hoc büyük N
+G034,post-hoc,0.5,0.01,0.4525585,2,30,7.5000000,9.2103404,,,screenshots/G034.png,post hoc küçük N
+G035,post-hoc,0.3,0.05,0.0603726,1,1,0.0900000,3.8414588,,,screenshots/G035.png,SINIR: N=1
+G036,post-hoc,0.3,0.05,0.1688419,1,10.5,0.9900000,3.8414588,,,screenshots/G036.png,GEÇERSİZ: N tam sayı değil | hata yok; kutu 10.5 kaldı ama λ=0.99 → içeride N=11 kullanıldı
+G037,post-hoc,0.3,0.05,0.1577560,1,10.2,0.9000000,3.8414588,,,screenshots/G037.png,"SINIR: N kesirli (ceil mi round mu?) | hata yok; λ=0.90 → N=10 kullanıldı (ceil değil, round)"
+G038,post-hoc,0.3,0.05,0.1688419,1,10.7,0.9900000,3.8414588,,,screenshots/G038.png,"SINIR: N kesirli (floor mu?) | hata yok; λ=0.99 → N=11 kullanıldı (floor değil, round)"
+G039,post-hoc,0,0.05,0.0500000,1,100,0,3.8414588,,,screenshots/G039.png,"SINIR: post hoc w=0 (SPEC L18: kabul edilir mi?) | hata yok; post hoc w=0 kabul edildi, güç=α; λ ekranda '0' (ondalıksız) gösterildi"
+G040,post-hoc,0.3,0.05,,1,0,,,,evet,screenshots/G040.png,"GEÇERSİZ: post hoc N=0 (SPEC L22) | G*Power hata penceresi ""Input error"": ""Total sample size is outside the admissible range (1, 2147483646)"""
+G041,post-hoc,0.3,0.05,,1,2147483647,,,,evet,screenshots/G041.png,"GEÇERSİZ: post hoc N üst sınır+1 (SPEC L22) | G*Power hata penceresi ""Input error"": ""Total sample size is outside the admissible range (1, 2147483646)"""
+G042,a-priori,0.3,0.05,0.9999999,1,570,51.3000000,3.8414588,0.9999999,,screenshots/G042.png,SINIR: güç=0.9999999 kapalı üst sınır (SPEC L20) | hata yok; güç=0.9999999 kabul edildi (kapalı üst sınır)
+G043,post-hoc,0.3,0.9999999,0.9999999,1,10,0.9000000,1.570796e-14,,,screenshots/G043.png,SINIR: alfa=0.9999999 kapalı üst sınır (SPEC L19) | hata yok; alfa=0.9999999 kabul edildi; kritik χ² üstel biçimde gösterildi (1.570796e-14)
+G044,a-priori,0.3,0.99999995,0.99999995,1,,,,,evet,screenshots/G044.png,"GEÇERSİZ: alfa=0.99999995 reddedilmeli (SPEC L19) | G*Power hata penceresi ""Input error"": ""Alpha is outside the admissible range (1e-07, 1)."""
+G045,a-priori,0,0.05,0.8,0,,,,,evet,screenshots/G045.png,"GEÇERSİZ: w=0 ve df=0 birlikte (SPEC L23 doğrulama sırası) | G*Power hata penceresi ""Input error"": ""Degrees of Freedom must be greater or equal one."" | df hatası w hatasından önce geldi (doğrulama sırası df → w)"
+G046,post-hoc,0.3,0.99,0.9936236,1,10,0.9000000,0.0001570879,,,screenshots/G046.png,SINIR: gösterim — kritik χ² ≈ 1.6e-4 (SPEC L31: sabit mi üstel mi?) | kritik χ² '0.0001570879' gösterildi = %.7g (sabit 7 ondalık olsaydı 0.0001571)
+G047,post-hoc,0.3,0.999,0.9993624,1,10,0.9000000,1.570797e-06,,,screenshots/G047.png,SINIR: gösterim — kritik χ² ≈ 1.6e-6 (SPEC L31: sabit mi üstel mi?) | kritik χ² '1.570797e-06' gösterildi = %.7g (üstel)
+G048,post-hoc,-0.3,0.05,,1,100,,,,evet,screenshots/G048.png,"GEÇERSİZ: post hoc w<0 (SPEC: ""must be non-negative"" iletisi) | G*Power hata penceresi ""Input error"": ""Effect size w must be non-negative."""
+G049,post-hoc,0.3,0.95,0.9680998,1,10,0.9000000,0.00393214,,,screenshots/G049.png,SINIR: gösterim — kritik χ² ≈ 0.0039 (küçük değer eşiği) | kritik χ² '0.00393214' gösterildi = %.7g (sabit olsaydı 0.0039321)
+G050,post-hoc,0.3,0.9,0.9360864,1,10,0.9000000,0.0157908,,,screenshots/G050.png,SINIR: gösterim — kritik χ² ≈ 0.0158 (küçük değer eşiği) | kritik χ² '0.0157908' gösterildi = sabit 7 ondalık (%.7g olsaydı 0.01579077); küçük değer eşiği 0.0039 ile 0.0158 arasında
