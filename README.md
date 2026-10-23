@@ -16,8 +16,16 @@
 ### 🎬 DEMO VİDEOSU
 
 <p align="center">
-  <strong>TODO: 60 saniyelik CLI demo videosunun linki</strong>
+  <a href="https://youtu.be/uQfWS3_VzAE">
+    <img src="https://img.shields.io/badge/▶%20YouTube'da%20İzle-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+  &nbsp;
+  <a href="docs/demo.mp4">
+    <img src="https://img.shields.io/badge/📁%20Video%20Dosyası%20(repo)-17202C?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
 </p>
+
+> **Videoda:** `demo.ps1` ile sırayla a priori (N = 220, yandaki G\*Power ile aynı), post hoc (güç = 0.6236), geçersiz girdi (`w = 0` → G\*Power'ın hata iletisi, çıkış kodu 2) ve uyum raporu (**N eşleşmesi %100**).
 
 ---
 
@@ -211,6 +219,9 @@ G-Power/
 │   ├── scale_vectors.csv      # 567 scipy vektörü (ölçek kâhini)
 │   └── gen_scale_oracle.py
 ├── RAPOR.md                # Oturum 2 raporu: çelişkiler, SPEC'e sorular
+├── demo.ps1                # 60 saniyelik video demosu
+├── docs/
+│   └── demo.mp4               # Demo videosu
 ├── pyproject.toml          # Paket tanımı, gpower-clone komutu
 ├── src/
 │   ├── engine/                # Tek hesap motoru (doğrulama, N araması, Brent)
