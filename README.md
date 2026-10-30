@@ -1,7 +1,12 @@
-# <p align="center">🔬 χ² Power Teardown</p>
-## <p align="center">An Evidence-Backed Clean-Room Rewrite of G*Power's χ² Contingency Table Calculation</p>
+<div align="center">
 
-<p align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Microscope.png" width="110" alt="Microscope">
+
+# χ² Power Teardown
+
+<img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=22&duration=2600&pause=700&color=10B981&center=true&vCenter=true&width=600&lines=Clean-room%20rewrite%20of%20G%2APower%27s%20%CF%87%C2%B2%20calculation;589%20%2F%20589%20a%20priori%20N%20matches;Reverse-engineered%20with%20REA%20%2B%20Ghidra" alt="Clean-room rewrite of G*Power's χ² calculation">
+
+<p>
   <img src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/Ghidra-12.1.4-B22222?style=for-the-badge" />
   <img src="https://img.shields.io/badge/REA-6.7.0-8B3FFD?style=for-the-badge" />
@@ -9,19 +14,26 @@
   <img src="https://img.shields.io/badge/Course-YZM301%20Teardown%20Sprint-17202C?style=for-the-badge" />
 </p>
 
-<p align="center">
-  <a href="#-english"><b>🇬🇧 English</b></a> · <a href="#-türkçe"><b>🇹🇷 Türkçe</b></a>
-</p>
+<a href="#-english"><b>🇬🇧 English</b></a> · <a href="#-türkçe"><b>🇹🇷 Türkçe</b></a>
 
-<p align="center">
-  <a href="https://youtu.be/uQfWS3_VzAE">
-    <img src="https://img.shields.io/badge/▶%20Watch%20on%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
-  </a>
-  &nbsp;
-  <a href="docs/demo.mp4">
-    <img src="https://img.shields.io/badge/📁%20Video%20File%20(repo)-17202C?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</p>
+</div>
+
+<br>
+
+<table align="center">
+  <tr>
+    <td align="center" width="25%"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Bullseye.png" width="40" alt="Bullseye"><br><b>Oracle</b><br><sub>50 G*Power vectors</sub></td>
+    <td align="center" width="25%"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Detective.png" width="40" alt="Detective"><br><b>Teardown</b><br><sub>REA + Ghidra</sub></td>
+    <td align="center" width="25%"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Soap.png" width="40" alt="Soap"><br><b>Clean room</b><br><sub>spec-only rewrite</sub></td>
+    <td align="center" width="25%"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" width="40" alt="Check Mark Button"><br><b>100% match</b><br><sub>589 / 589</sub></td>
+  </tr>
+</table>
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" width="32" align="center"> Demo
+
+<div align="center">
+  <img src="docs/demo.gif" width="720" alt="demo.ps1: a priori, post hoc, invalid input, conformance report"><br><sub>demo.ps1: a priori, post hoc, invalid input, conformance report</sub><br><br><a href="https://youtu.be/uQfWS3_VzAE"><img src="https://img.youtube.com/vi/uQfWS3_VzAE/hqdefault.jpg" width="480" alt="Demo video"></a><br><a href="https://youtu.be/uQfWS3_VzAE"><img src="https://img.shields.io/badge/▶%20Watch%20on%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch on YouTube"></a>
+</div>
 
 ---
 
@@ -29,11 +41,11 @@
 
 > ⚠️ **This project is not G\*Power and is not a replacement for it.** G\*Power's χ² contingency table calculation was studied for educational purposes, its behaviour was documented with evidence, and it was rewritten independently. The delivered code contains no decompiled output.
 
-### 🎬 Demo Video
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" width="26" align="center"> Demo Video
 
 > **In the video:** `demo.ps1` runs, in order, an a priori calculation (N = 220, same as G\*Power next to it), a post hoc calculation (power = 0.6236), an invalid input (`w = 0` → G\*Power's error message, exit code 2) and the conformance report (**100% N match**).
 
-### 📝 About the Project
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Memo.png" width="26" align="center"> About the Project
 
 **χ² Power Teardown** is a small command-line program that reproduces the *"χ² tests → Goodness-of-fit tests: Contingency tables"* calculation of G\*Power, a widely used statistics tool. Given effect size **w**, **α**, **power** and **df**, it computes the required sample size (a priori) or the power reached with a given sample (post hoc).
 
@@ -43,7 +55,7 @@ The real goal is not the program itself but **the proof that it is correct**. Th
 2. 🕵️ **Inspection (Session 1):** An AI agent used REA + Ghidra to look inside `GPowerNT.exe` and find out how the calculation works. Every claim was tied to a function address, and a specification (`SPEC.md`) was written from those findings.
 3. 🧼 **Clean-room implementation (Session 2):** A separate agent that never saw any Ghidra output wrote the program **only** from the specification and the oracle.
 
-### 🌟 Key Features
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" width="26" align="center"> Key Features
 
 * 📐 **Two modes:** `a-priori` (required N) and `post-hoc` (achieved power)
 * 🧾 **Single-line JSON output:** `ncp`, `critical_chi2`, `n_total`, `actual_power` / `power`
@@ -52,7 +64,7 @@ The real goal is not the program itself but **the proof that it is correct**. Th
 * 🧪 **Differential testing:** Automatic comparison against the G\*Power vectors + 567 scipy scale vectors
 * 🤖 **Hallucination log:** 3 confident-but-wrong claims made by the agent, and the tests that caught them
 
-### 🧩 Completed Layers
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Puzzle%20Piece.png" width="26" align="center"> Completed Layers
 
 | Layer | Points | Status |
 | :--- | :---: | :---: |
@@ -60,7 +72,7 @@ The real goal is not the program itself but **the proof that it is correct**. Th
 | MCP server | +15 | ⏳ Bonus |
 | AI agent | +10 | ⏳ Bonus |
 
-### 🎯 Version and Target
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Bullseye.png" width="26" align="center"> Version and Target
 
 | | |
 | :--- | :--- |
@@ -74,7 +86,7 @@ The real goal is not the program itself but **the proof that it is correct**. Th
 
 `GPowerNT.exe` (called `GPower.exe` in the assignment text) is not and will not be in this repository (`.gitignore`).
 
-### 🏗️ Method and Data Flow
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Building%20Construction.png" width="26" align="center"> Method and Data Flow
 
 ```text
 [ G*Power 3.1.9.7 GUI ]
@@ -92,7 +104,7 @@ The real goal is not the program itself but **the proof that it is correct**. Th
 [ tests/REPORT.md ]  gate: exact a priori N match ≥ 90%
 ```
 
-### 🔍 Key Findings
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Left.png" width="26" align="center"> Key Findings
 
 Behaviours not written in the manual but found in G\*Power's GUI and binary (details: `SPEC.md`, `LEDGER.md`):
 
@@ -106,7 +118,7 @@ Behaviours not written in the manual but found in G\*Power's GUI and binary (det
 | Fractional df | No error, used as is (df = 2.5) | G028 |
 | Display | Normally 7 decimals; very small (< ~0.01) and ≥ 100 values use `%.7g` | G020, G039–G050 |
 
-### ⚖️ Conflicts Between the Contract and G\*Power
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Balance%20Scale.png" width="26" align="center"> Conflicts Between the Contract and G\*Power
 
 `CONTRACT.md` §5 requires out-of-range inputs to be rejected with `OUT_OF_RANGE`. G\*Power, however, computes some of these inputs without error:
 
@@ -119,7 +131,7 @@ Behaviours not written in the manual but found in G\*Power's GUI and binary (det
 
 Because the hidden tests run on the contract's harness, this implementation follows **the contract outside the valid range** and G\*Power inside it. The ambiguity should be reported on the course thread (contract §11).
 
-### 🚀 Installation and Usage
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="26" align="center"> Installation and Usage
 
 ```bash
 # 1. Clone the repo
@@ -161,7 +173,7 @@ PATH="$PWD/.venv/Scripts:$PATH" python tests/diff_test.py oracle/gpower_vectors.
 # -> tests/REPORT.md
 ```
 
-### 📊 Conformance Report
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="26" align="center"> Conformance Report
 
 | Metric | Result |
 | :--- | :--- |
@@ -174,7 +186,7 @@ PATH="$PWD/.venv/Scripts:$PATH" python tests/diff_test.py oracle/gpower_vectors.
 
 Details: [tests/REPORT.md](tests/REPORT.md) and the Session 2 report [RAPOR.md](RAPOR.md) (including open questions on the SPEC and the contract).
 
-### 🛠️ REA Check
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" width="26" align="center"> REA Check
 
 > *"Are the REA tools and the Ghidra provider available in this session?"*
 
@@ -182,7 +194,7 @@ Details: [tests/REPORT.md](tests/REPORT.md) and the Session 2 report [RAPOR.md](
 
 According to the session's own check (`binary_session`), the Ghidra provider is **available**: version 12.1.4, eight out of eight checks passed (configuration, platform, architecture, installation, version, headless, native decompiler, Java).
 
-### 📁 Project Structure
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/File%20Folder.png" width="26" align="center"> Project Structure
 
 ```
 G-Power/
@@ -216,7 +228,7 @@ G-Power/
     └── REPORT.md              # Conformance report
 ```
 
-### 📚 Citation
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" width="26" align="center"> Citation
 
 Faul, F., Erdfelder, E., Lang, A.-G., & Buchner, A. (2007). G\*Power 3: A flexible statistical power analysis program for the social, behavioral, and biomedical sciences. *Behavior Research Methods, 39*, 175–191.
 
@@ -230,11 +242,11 @@ The G\*Power authors provide this tool to the scientific community free of charg
 
 > ⚠️ **Bu proje G\*Power değildir ve onun yerine geçmez.** G\*Power'ın χ² olumsallık tablosu hesabı eğitim amacıyla incelenmiş, davranışı kanıtlarla belgelenmiş ve bağımsız olarak yeniden yazılmıştır. Teslim edilen kodda decompile çıktısı yoktur.
 
-### 🎬 Demo Videosu
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" width="26" align="center"> Demo Videosu
 
 > **Videoda:** `demo.ps1` ile sırayla a priori (N = 220, yandaki G\*Power ile aynı), post hoc (güç = 0.6236), geçersiz girdi (`w = 0` → G\*Power'ın hata iletisi, çıkış kodu 2) ve uyum raporu (**N eşleşmesi %100**).
 
-### 📝 Proje Hakkında
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Memo.png" width="26" align="center"> Proje Hakkında
 
 **χ² Power Teardown**, istatistikte yaygın kullanılan G\*Power programının *"χ² tests → Goodness-of-fit tests: Contingency tables"* hesabını taklit eden, terminalden çalışan küçük bir programdır. Etki büyüklüğü **w**, **α**, **güç** ve **df** verildiğinde gereken örneklem büyüklüğünü (a priori) ya da verilen örneklemle ulaşılan gücü (post hoc) hesaplar.
 
@@ -244,7 +256,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 2. 🕵️ **İnceleme (Oturum 1):** Bir yapay zeka ajanı REA + Ghidra ile `GPowerNT.exe`'nin içine bakıp hesabın nasıl yapıldığını buldu. Her iddia bir fonksiyon adresine bağlandı ve bu bulgulardan bir şartname (`SPEC.md`) yazıldı.
 3. 🧼 **Temiz oda yazım (Oturum 2):** Ghidra çıktısını hiç görmeyen ayrı bir ajan, programı **yalnızca** şartnameden ve kâhinden yazdı.
 
-### 🌟 Temel Özellikler
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" width="26" align="center"> Temel Özellikler
 
 * 📐 **İki mod:** `a-priori` (gereken N) ve `post-hoc` (ulaşılan güç)
 * 🧾 **Tek satır JSON çıktı:** `ncp`, `critical_chi2`, `n_total`, `actual_power` / `power`
@@ -253,7 +265,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 * 🧪 **Diferansiyel test:** G\*Power vektörleri + 567 scipy ölçek vektörü ile otomatik karşılaştırma
 * 🤖 **Halüsinasyon günlüğü:** Ajanın kendinden emin ama yanlış çıkan 3 iddiası ve onları yakalayan testler
 
-### 🧩 Yapılan Katmanlar
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Puzzle%20Piece.png" width="26" align="center"> Yapılan Katmanlar
 
 | Katman | Puan | Durum |
 | :--- | :---: | :---: |
@@ -261,7 +273,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 | MCP sunucusu | +15 | ⏳ Bonus |
 | AI ajanı | +10 | ⏳ Bonus |
 
-### 🎯 Sürüm ve Hedef
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Bullseye.png" width="26" align="center"> Sürüm ve Hedef
 
 | | |
 | :--- | :--- |
@@ -275,7 +287,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 
 `GPowerNT.exe` (ödev metninde `GPower.exe`) bu repoda yoktur ve olmayacaktır (`.gitignore`).
 
-### 🏗️ Yöntem ve Veri Akışı
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Building%20Construction.png" width="26" align="center"> Yöntem ve Veri Akışı
 
 ```text
 [ G*Power 3.1.9.7 arayüzü ]
@@ -293,7 +305,7 @@ Projenin asıl amacı programın kendisi değil, **neden doğru olduğunun kanı
 [ tests/REPORT.md ]  kapı: a priori N tam eşleşmesi ≥ %90
 ```
 
-### 🔍 Öne Çıkan Bulgular
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Left.png" width="26" align="center"> Öne Çıkan Bulgular
 
 Kılavuzda yazmayan, G\*Power'ın ekranında ve binary'sinde bulunan davranışlar (ayrıntı: `SPEC.md`, `LEDGER.md`):
 
@@ -307,7 +319,7 @@ Kılavuzda yazmayan, G\*Power'ın ekranında ve binary'sinde bulunan davranışl
 | Kesirli df | Hata yok, olduğu gibi kullanılıyor (df=2.5) | G028 |
 | Gösterim | Normalde 7 ondalık; çok küçük (< ~0.01) ve ≥ 100 değerler `%.7g` | G020, G039–G050 |
 
-### ⚖️ Sözleşme ile G\*Power Arasındaki Çelişkiler
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Balance%20Scale.png" width="26" align="center"> Sözleşme ile G\*Power Arasındaki Çelişkiler
 
 `CONTRACT.md` §5, aralık dışındaki girdilerin `OUT_OF_RANGE` ile reddedilmesini istiyor. G\*Power ise bu girdilerin bir kısmını hatasız hesaplıyor:
 
@@ -320,7 +332,7 @@ Kılavuzda yazmayan, G\*Power'ın ekranında ve binary'sinde bulunan davranışl
 
 Gizli testler sözleşmenin düzeneğiyle çalıştığı için bu uygulama **aralık dışında sözleşmeye**, aralık içinde G\*Power'a uyar. Belirsizlik ders gönderisine bildirilmelidir (sözleşme §11).
 
-### 🚀 Kurulum ve Çalıştırma
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="26" align="center"> Kurulum ve Çalıştırma
 
 ```bash
 # 1. Repoyu klonla
@@ -362,7 +374,7 @@ PATH="$PWD/.venv/Scripts:$PATH" python tests/diff_test.py oracle/gpower_vectors.
 # -> tests/REPORT.md
 ```
 
-### 📊 Uyum Raporu
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="26" align="center"> Uyum Raporu
 
 | Ölçüm | Sonuç |
 | :--- | :--- |
@@ -375,7 +387,7 @@ PATH="$PWD/.venv/Scripts:$PATH" python tests/diff_test.py oracle/gpower_vectors.
 
 Ayrıntı: [tests/REPORT.md](tests/REPORT.md) ve Oturum 2'nin raporu [RAPOR.md](RAPOR.md) (SPEC'e ve sözleşmeye açık sorular dahil).
 
-### 🛠️ REA Kontrolü
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" width="26" align="center"> REA Kontrolü
 
 > *"REA araçları ve Ghidra sağlayıcısı bu oturumda kullanılabilir mi?"*
 
@@ -383,14 +395,22 @@ Ayrıntı: [tests/REPORT.md](tests/REPORT.md) ve Oturum 2'nin raporu [RAPOR.md](
 
 Oturumun kendi kontrolüne (`binary_session`) göre Ghidra sağlayıcısı **available**: sürüm 12.1.4, sekiz kontrolün sekizi geçti (yapılandırma, platform, mimari, kurulum, sürüm, headless, native decompiler, Java).
 
-### 📁 Proje Yapısı
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/File%20Folder.png" width="26" align="center"> Proje Yapısı
 
 Klasör ağacı için yukarıdaki [Project Structure](#-project-structure) bölümüne bakın; dosya adları iki dilde de aynıdır.
 
-### 📚 Atıf
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" width="26" align="center"> Atıf
 
 Faul, F., Erdfelder, E., Lang, A.-G., & Buchner, A. (2007). G\*Power 3: A flexible statistical power analysis program for the social, behavioral, and biomedical sciences. *Behavior Research Methods, 39*, 175–191.
 
 Faul, F., Erdfelder, E., Buchner, A., & Lang, A.-G. (2009). Statistical power analyses using G\*Power 3.1: Tests for correlation and regression analyses. *Behavior Research Methods, 41*, 1149–1160.
 
 G\*Power yazarları bu aracı bilim dünyasına ücretsiz sunmuştur; resmi dağıtım yalnızca psychologie.hhu.de üzerindendir.
+
+
+<br>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="22" align="center" alt="Red Heart">
+  <sub>Made by <a href="https://github.com/huseyinbaranisik">Hüseyin Baran Işık</a> · Animated emojis: <a href="https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis">Animated Fluent Emojis</a></sub>
+</div>
